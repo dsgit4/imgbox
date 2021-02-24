@@ -6,7 +6,8 @@ steps:
       - '-c'
       - |
         mvn test || echo "fail" > /workspace/build-status.txt
-
+  - name: 'ubuntu'
+    args: ['mkdir', 'deploy-build']
   - id: Bubble Maven result
     name: 'gcr.io/cloud-builders/mvn'
     entrypoint: 'bash'
@@ -16,20 +17,11 @@ steps:
         if [[ $(< /workspace/build-status.txt) == "fail" ]]; then
           exit 1
         fi
-  - name: 'ubuntu'
-    args: ['mkdir', 'deploy-build']
-
-  - name: 'gcr.io/cloud-builders/mvn'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-          mvn package
 
 #  - name: 'ubuntu'
 #    args: ['mkdir', 'deploy-build']
-  - name: 'ubuntu'
-    args: ['cp', 'src/main/webapp/WEB-INF/appengine-web.xml', 'deploy-build/']
+#  - name: 'ubuntu'
+#    args: ['cp', 'src/main/webapp/WEB-INF/app.yaml', 'deploy-build/']
   - name: 'ubuntu'
     args: ['cp', '/workspace/target/tileservice-2.0.0.war', 'deploy-build/']
   - id: "Deploy to AppEngine"
