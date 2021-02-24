@@ -16,6 +16,15 @@ steps:
         if [[ $(< /workspace/build-status.txt) == "fail" ]]; then
           exit 1
         fi
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy"]
+ # - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:alpine"
+ #   args: ["app", "deploy"]
+
+
+  - id: cloud-deploy
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+
+        - 'deploy'
+
 timeout: "1600s"
