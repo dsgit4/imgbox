@@ -5,9 +5,7 @@ steps:
     args:
       - '-c'
       - |
-        mvn test || echo "fail" > /workspace/build-status.txt
-  - name: 'ubuntu'
-    args: ['mkdir', 'deploy-build']
+        mvn package || echo "fail" > /workspace/build-status.txt
   - id: Bubble Maven result
     name: 'gcr.io/cloud-builders/mvn'
     entrypoint: 'bash'
@@ -17,9 +15,8 @@ steps:
         if [[ $(< /workspace/build-status.txt) == "fail" ]]; then
           exit 1
         fi
-
-#  - name: 'ubuntu'
-#    args: ['mkdir', 'deploy-build']
+  - name: 'ubuntu'
+    args: ['mkdir', 'deploy-build']
 #  - name: 'ubuntu'
 #    args: ['cp', 'src/main/webapp/WEB-INF/app.yaml', 'deploy-build/']
   - name: 'ubuntu'
