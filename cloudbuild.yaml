@@ -18,7 +18,7 @@ steps:
         fi
  # - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:alpine"
  #   args: ["app", "deploy"]
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
     entrypoint: gcloud
     args:
       - 'deploy'
