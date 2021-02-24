@@ -20,7 +20,7 @@ steps:
   - name: 'ubuntu'
     args: ['cp', 'src/main/appengine/app.yaml', 'deploy-build/']
   - name: 'ubuntu'
-    args: ['cp', '/workspace/target/tileservice-2.0.0.war', 'deploy-build/']
+    args: ['cp', '/workspace/target/tileservice-2.0.0.jar', 'deploy-build/']
   - id: "Deploy to AppEngine"
     name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', 'deploy-build/']
