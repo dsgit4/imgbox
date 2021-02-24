@@ -20,6 +20,5 @@ steps:
  #   args: ["app", "deploy"]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
     entrypoint: gcloud
-    args:
-      - ' deployment-manager deployments create'
+    args: ["app", "deploy"]
 timeout: "1600s"
