@@ -22,5 +22,7 @@ steps:
  #   entrypoint: gcloud
   #  args: ["app", "deploy"]
   - name: 'gcr.io/cloud-builders/mvn'
+    args: ['package']
+  - name: 'gcr.io/cloud-builders/mvn'
     args: ['appengine:deploy']
 timeout: "1600s"
