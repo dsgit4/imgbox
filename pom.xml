@@ -37,6 +37,12 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>ome</groupId>
@@ -48,6 +54,12 @@
             <groupId>ome</groupId>
             <artifactId>loci_tools</artifactId>
             <version>6.5.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -55,26 +67,31 @@
             <artifactId>javax.json</artifactId>
             <version>1.1.4</version>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
-            <version>9.4.33.v20201020</version>
+            <version>9.4.36.v20210114</version>
             <type>jar</type>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-client</artifactId>
-            <version>9.4.33.v20201020</version>
+            <version>9.4.36.v20210114</version>
             <type>jar</type>
-            <scope>provided</scope>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Embedded Jetty dependencies -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.36.v20210114</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>9.4.36.v20210114</version>
         </dependency>
     </dependencies>
     <build>
@@ -155,6 +172,17 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <configuration>
+                    <to>
+                        <image>gcr.io/nih-test/imagebox-server</image>
+                    </to>
+                </configuration>
+            </plugin>
+
 
         </plugins>
     </build>
