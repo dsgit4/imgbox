@@ -16,8 +16,7 @@ steps:
         if [[ $(< /workspace/build-status.txt) == "fail" ]]; then
           exit 1
         fi
-  - id: "Prepare staging directory"
-    name: 'ubuntu'
+  - name: 'ubuntu'
     args: ['mkdir', 'deploy-build']
   - name: 'ubuntu'
     args: ['cp', 'src/main/webapp/WEB-INF/appengine-web.xml', 'deploy-build/']
