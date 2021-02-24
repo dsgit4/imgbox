@@ -17,8 +17,8 @@ steps:
         fi
   - name: 'ubuntu'
     args: ['mkdir', 'deploy-build']
-#  - name: 'ubuntu'
-#    args: ['cp', 'src/main/webapp/WEB-INF/app.yaml', 'deploy-build/']
+  - name: 'ubuntu'
+    args: ['cp', 'src/main/webapp/WEB-INF/appengine-web.xml', 'deploy-build/']
   - name: 'ubuntu'
     args: ['cp', '/workspace/target/tileservice-2.0.0.war', 'deploy-build/']
   - id: "Deploy to AppEngine"
