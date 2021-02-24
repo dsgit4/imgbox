@@ -4,11 +4,11 @@
     <groupId>com.ebremer</groupId>
     <artifactId>tileservice</artifactId>
     <version>2.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
@@ -67,12 +67,14 @@
             <artifactId>jetty-servlet</artifactId>
             <version>9.4.33.v20201020</version>
             <type>jar</type>
+
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-client</artifactId>
             <version>9.4.33.v20201020</version>
             <type>jar</type>
+
         </dependency>
     </dependencies>
     <build>
