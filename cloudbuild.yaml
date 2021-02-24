@@ -18,13 +18,8 @@ steps:
         fi
  # - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:alpine"
  #   args: ["app", "deploy"]
-
-
-  - id: cloud-deploy
-    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
-
-        - 'deploy'
-
+      - 'deploy'
 timeout: "1600s"
